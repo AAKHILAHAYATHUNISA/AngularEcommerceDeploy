@@ -1,0 +1,60 @@
+<!-- <form [formGroup]="MyFormGroup" (ngSubmit)="onSubmit()"> -->
+  <form [formGroup]="MyFormGroup">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title : </label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="Title">
+        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>     -->
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">AuthorName : </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="AuthorName">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Description : </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="Description">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Price : </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="price">
+    </div>
+    <!-- <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+    <button type="submit" class="btn btn-primary" *ngIf="!updateBtn" (click)="onSubmit()">Submit</button>
+    <button type="submit" class="btn btn-primary" *ngIf="updateBtn" (click)="updateCall()">Update</button>
+</form>
+
+<p *ngIf="getList().length==0">No itemss In the table</p>
+<table *ngIf="getList().length>0" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">AuthorName</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let item of getList(); let i = index">
+      <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.Title}}</td>
+        <td>{{item.AuthorName}}</td>
+        <td>{{item.Description}}</td>
+        <td>{{item.price}}</td>
+        <td>
+            <button (click)="update(item)">Update</button>
+            <button (click)="delete(i)">Delete</button>
+        </td>
+
+
+        <!-- <td><button (click)="update()">Update</button></td>
+        <td><button (click)="delete()">Delete</button></td> -->
+
+        
+      </tr>
+    </tbody>
+  </table>

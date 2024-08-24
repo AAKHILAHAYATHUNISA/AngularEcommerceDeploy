@@ -1,0 +1,36 @@
+<div class="col">
+  <div class="card">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title" *ngIf="isHomeRoute && !isBookRoute">{{ApiCard.id}} : {{ApiCard.title}}</h5>
+      <h5 class="card-title" *ngIf="!isHomeRoute && !isBookRoute">{{card.id}} : {{card.name}}</h5>
+
+      <div *ngIf="isBookRoute">
+        <h5 class="card-title">Id : {{book}}</h5>
+        <h5 class="card-title">Author : </h5>
+        <h5 class="card-title">Title : </h5>
+      </div>
+      
+      
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <a routerLink="/Products/:display_id" class="btn btn-primary" *ngIf="!isBookRoute">Buy</a>
+      <br>
+      <br>
+      <div *ngIf="isHomeRoute">
+      <!-- <a [routerLink]="['/Home', ApiCard.id]" class="btn btn-primary" (click)="HomeRouteState()">Details</a> -->
+       <a [routerLink]="['/Products', ApiCard.id]" class="btn btn-primary" (click)="HomeRouteState()" *ngIf="!isBookRoute">Details</a>
+      <!-- <a class="btn btn-primary" (click)="HomeRouteState()">Details</a> -->
+      
+       <!-- <a class="btn btn-primary">Details</a> -->
+      
+      </div>
+      <div *ngIf="!isHomeRoute">
+        <a [routerLink]="['/Products', card.id]" class="btn btn-primary" *ngIf="!isBookRoute">Details</a>
+
+      </div>
+
+      <!-- <a [routerLink]="'/Products/'+ card.id" class="btn btn-primary">Details</a> -->
+    </div>
+
+  </div>
+</div>

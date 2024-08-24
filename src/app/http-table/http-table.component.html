@@ -1,0 +1,21 @@
+<p>hello</p>
+
+<!-- <div *ngFor="let item of list"> -->
+    <!-- <pre>{{item|json}}</pre>
+    <p>{{item?.id}}</p>
+    <p>{{item?.title}}</p> -->
+<!-- </div> -->
+
+<form [formGroup]="MyFormGroup">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">count : </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="postCount">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="getAllApiData()">Submit</button>
+</form>
+<p>{{list.length}}</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    
+    <app-card *ngFor="let item of list; let i = index" [ApiCard]="item"></app-card>
+</div>

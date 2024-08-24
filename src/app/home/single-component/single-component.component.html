@@ -1,0 +1,20 @@
+<p>hello</p>
+<!-- <div class="card" (cardSelected)="receiveData($event)"> -->
+<!-- <div (cardSelected)="dataDisplay()"> -->
+<div>
+    <div class="card-body">
+        <h5 class="card-title">{{ApiCard?.id}} : {{ApiCard?.title}}</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <a routerLink="/Products/:display_id" class="btn btn-primary">Buy</a>
+        <!-- <a [routerLink]="'/Products/'+card_id.id" class="btn btn-primary">Details</a>     -->
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <!-- <button type="button" class="btn btn-primary" [routerLink]="['/Home', selectedApiCard?.id-1]">Left</button>
+        <button type="button" class="btn btn-primary" [routerLink]="['/Home', ${disp_id}+1]">Right</button> -->
+
+        <button type="button" class="btn btn-primary" [routerLink]="['/Home', disp_id-1]">Left</button>
+        <button type="button" class="btn btn-primary" [routerLink]="['/Home', disp_id+1]">Right</button>
+    </div>        
+</div>
+
+<!-- </div> -->

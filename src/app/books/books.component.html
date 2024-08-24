@@ -1,0 +1,30 @@
+<p>books works!</p>
+<form class="input-group mb-3" #BookForm=ngForm (click)="onSubmit(BookForm)">
+    <input type="text" class="form-control" placeholder="Enter No of Book to be displayed" aria-label="Recipient's username" aria-describedby="button-addon2" [formControl]="query">
+    <!-- <input type="text" class="form-control" placeholder="Enter Title of the Book" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" ngModel>
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Button</button> -->
+    <input type="text" class="form-control" placeholder="Enter Title of the Book" aria-label="Recipient's username" aria-describedby="button-addon2" [formControl]="titleControl">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Button</button> 
+</form>
+<div class="input-group mb-3">
+    <div *ngIf="filteredLanguages.length > 0">
+        <select multiple class="form-control">
+            <option *ngFor="let lang of filteredLanguages">{{ lang }}</option>
+        </select>
+    </div> 
+    <div *ngIf="filteredTitles.length > 0">
+        <select multiple class="form-control">
+            <option *ngFor="let title of filteredTitles">{{ title }}</option>
+        </select>
+    </div>    
+</div>
+<div *ngIf="filteredTitles.length === 0">
+    <p>Wait for the titles to be available</p>
+</div>
+
+<div>
+    <h2>{{newBooks.length}}</h2>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <app-books-display  *ngFor="let item of newBooks; let i = index" [BookCard]="item" [bookindex]="i"></app-books-display>
+</div>

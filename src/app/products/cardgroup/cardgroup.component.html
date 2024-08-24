@@ -1,0 +1,8 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngIf = "!isBookRoute">
+        <app-card *ngFor="let item of list; let i = index" [card]="item"></app-card>
+    </div>
+    <!-- <div *ngIf = "isBookRoute">
+        <app-card *ngFor="let item of books; let i = index" [book]="item"></app-card>
+    </div> -->
+</div>

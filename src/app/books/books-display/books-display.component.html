@@ -1,0 +1,18 @@
+<!-- <p>books-display works!</p> -->
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{BookCard.id}} : {{BookCard.title}}</h5>
+        <h5 class="card-title">{{BookCard.languages}}</h5>
+        <div *ngIf="BookCard.authors.length > 0">
+            <h5 *ngFor="let author of BookCard.authors">
+              {{ author.name }}
+            </h5>
+          </div>
+          <div *ngIf="BookCard.authors.length === 0">
+            <p>No authors available</p>
+          </div>
+        <p class="card-text">{{BookCard.title}}</p>
+    </div>       
+</div>
